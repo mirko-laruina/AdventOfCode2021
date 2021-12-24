@@ -24,6 +24,16 @@ def check_win(board, marked_pos):
 
     return winning_col or winning_row
 
+def calc_sum(board):
+    sum = 0
+    for board_row in board:
+        for board_num in board_row:
+            if(board_num[1] == False):
+                sum += board_num[0]
+
+    return sum
+
+
 with open("input.txt") as f:
     lines = f.readlines()
 
@@ -51,12 +61,7 @@ for number in numbers:
 
         won = check_win(board, marked_pos)
         if won:
-            sum = 0
-            for board_row in board:
-                for board_num in board_row:
-                    if(board_num[1] == False):
-                        sum += board_num[0]
-
+            sum = calc_sum(board)
             print("Sum:", sum)
             print("Called num:", number)
             print("Product:", sum*number)
