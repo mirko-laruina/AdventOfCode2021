@@ -1,0 +1,3 @@
+# Part 1
+Since x constantly decreases until stop, the optimal x is the one which stops in our target area since it allows the y to move with "unlimited" steps
+Since y constantly decreases, there will exist a step where the probe will have y = 0 and the speed will be the negative of the starting speed (the height rises and falls with the form n*(n+1) / 2). If we take that step into consideration, since we want to maximize n*(n+1)/2 (the max height) and, at the same time, we want to be constrained by y_min and y_max, we can put the speed at y = 0 equal to y_min. This means that the previous step had a speed of y_min + 1, therefore the max height will be equal to |(y_min + 1)*y_min / 2|
