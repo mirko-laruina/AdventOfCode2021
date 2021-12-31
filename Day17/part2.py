@@ -47,15 +47,17 @@ def is_target_hit(x0, y0):
 
 count = 0
 for xv in range(x_max+1):
-    yv = 0
+    # avoid overshooting by starting from y_min and going up
+    yv = y_min
+
+    # we can stop when the max height reached with yv is more than
+    # the max reachable heaight given the target area
+    # Note: the formula is simplified
     while yv*yv <= (y_min - 1)*y_min :
         #print("Xv =", xv,", Yv =", yv)
         if(is_target_hit(xv, yv)): 
             count += 1
         
-        if yv != 0:
-            if(is_target_hit(xv, -yv)): 
-                count += 1
         yv += 1
 
 print("Count of valid (x, y) pairs:", count)
